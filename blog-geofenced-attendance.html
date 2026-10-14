@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biometric vs Geofenced Attendance: What Works for Remote Teams and Field Staff — Sprywave Technologies</title>
+<meta name="description" content="Fingerprint terminals work well in one building. For field teams, multiple sites and events, location-verified check-in is often the better fit.">
+<link rel="icon" href="images/sw-logo.png">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#ffffff;font-family:Manrope,"Plus Jakarta Sans",system-ui,sans-serif;color:#0b0d12}
+a{color:#1557d6}a:hover{color:#1048b3}
+*{box-sizing:border-box}
+.sw-dd{position:relative}
+.sw-dd-menu{display:none;position:absolute;top:100%;left:-16px;min-width:260px;margin:0;padding:0;list-style:none;background:#0b0b0f;border:1px solid #2a2e38;z-index:50}
+.sw-dd:hover .sw-dd-menu,.sw-dd:focus-within .sw-dd-menu{display:block}
+.sw-dd-menu a{display:block;padding:14px 18px;color:#ffffff;text-decoration:none;font-size:15px;font-weight:500;border-bottom:1px solid #2a2e38}
+.sw-dd-menu li:last-child a{border-bottom:0}
+.sw-dd-menu a:hover,.sw-dd-menu a:focus-visible{color:#4d8dff;background:#14161c}
+
+</style>
+<link rel="stylesheet" href="css/animations.css?v=5">
+<script src="js/site.js?v=5" defer></script>
+</head>
+<body>
+<div style="width: 100%; font-family: Manrope, 'Plus Jakarta Sans', system-ui, sans-serif; color: #0b0d12; background: #ffffff">
+
+<!-- NAV -->
+<header style="background: #000000; padding: 0 16px; position: relative; z-index: 40">
+  <nav style="max-width: 1120px; margin: 0 auto; min-height: 80px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0" aria-label="Main">
+    <a href="index.html" style="display: block"><img src="images/sw-logo.png" alt="Sprywave Technologies — home" style="display: block; height: 44px; width: auto"></a>
+    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 32px">
+      <div class="sw-dd">
+        <a href="products.html" aria-haspopup="true" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; min-height: 44px">Products <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></a>
+        <ul class="sw-dd-menu"><li><a href="products.html" style="font-weight: 700">All products</a></li><li><a href="products.html#spryconnect">SpryConnect</a></li><li><a href="products.html#sprydesk">SpryDesk</a></li><li><a href="products.html#geopulse">GeoPulse Cloud</a></li><li><a href="products.html#misa">MISA ERP</a></li><li><a href="products.html#farmconnect">FarmConnect</a></li><li><a href="products.html#spryerp">SpryERP <span style="font-size: 11px; color: #a9afbb; font-weight: 600">· Soon</span></a></li><li><a href="products.html#unityledger">UnityLedger <span style="font-size: 11px; color: #a9afbb; font-weight: 600">· Soon</span></a></li></ul>
+      </div>
+      <div class="sw-dd">
+        <a href="#" aria-haspopup="true" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; min-height: 44px">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></a>
+        <ul class="sw-dd-menu">
+          <li><a href="software-development.html">Software Development</a></li>
+          <li><a href="virtual-teams.html">Virtual Teams</a></li>
+          <li><a href="call-center-solutions.html">Call Center Solutions</a></li>
+          <li><a href="erp-solutions.html">ERP Solutions</a></li>
+          <li><a href="consulting-services.html">Consulting Services</a></li>
+        </ul>
+      </div>
+      <a href="about.html#how-we-work" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600">How we work</a>
+      <a href="about.html" style="color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600">About</a>
+      <a href="blog.html" style="color: #4d8dff; text-decoration: none; font-size: 14px; font-weight: 600">Blog</a>
+      <a href="contact.html" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 999px; background: #1557d6; color: #ffffff; text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: 0.06em">TALK TO US</a>
+    </div>
+  </nav>
+</header>
+
+<!-- POST HEADER -->
+<section style="background: #000000; color: #ffffff; padding: 64px 16px 72px">
+  <div style="max-width: 760px; margin: 0 auto">
+    <a href="blog.html" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #4d8dff; text-decoration: none; font-size: 14px; font-weight: 600"><span aria-hidden="true">←</span> All articles</a>
+    <p style="margin: 16px 0 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: #4d8dff">WORKFORCE</p>
+    <h1 style="margin: 0; font-size: 44px; line-height: 1.18; font-weight: 600; letter-spacing: -0.015em">Biometric vs Geofenced Attendance: What Works for Remote Teams and Field Staff</h1>
+    <p style="margin: 20px 0 0; font-size: 18px; line-height: 29px; color: #a9afbb">Fingerprint terminals work well in one building. For field teams, multiple sites and events, location-verified check-in is often the better fit.</p>
+    <p style="margin: 24px 0 0; font-size: 14px; color: #a9afbb">Sprywave Team · October 2026 · 5 min read · <span style="color: #ffffff; background: #c2410c; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 12px">DRAFT — REVIEW BEFORE PUBLISHING</span></p>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<article style="padding: 0 16px 80px; background: #ffffff">
+  <div style="max-width: 760px; margin: 0 auto">
+    <img src="images/vt-industry.jpg" alt="Colleagues review data on two monitors" style="display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; margin: -32px 0 48px; position: relative">
+    <p style="margin: 0 0 22px; font-size: 18px; line-height: 31px; color: #1f2430">Accurate attendance matters for payroll, compliance and safety. For years the default answer has been a biometric terminal on the wall. That works well for a single office, but many organisations now have staff spread across job sites, field visits, campuses and events.</p><h2 style="margin: 44px 0 16px; font-size: 26px; line-height: 34px; font-weight: 700; letter-spacing: -0.01em; color: #0b0d12">Where biometric terminals struggle</h2><ul style="margin: 0 0 26px; padding-left: 22px; font-size: 18px; line-height: 30px; color: #1f2430"><li style="margin: 0 0 10px; padding-left: 4px"><strong>Cost per site:</strong> every location needs its own device, power and connectivity.</li><li style="margin: 0 0 10px; padding-left: 4px"><strong>Remote work:</strong> staff in the field have nowhere to clock in.</li><li style="margin: 0 0 10px; padding-left: 4px"><strong>Queues:</strong> large shifts or events create bottlenecks at a single device.</li><li style="margin: 0 0 10px; padding-left: 4px"><strong>Maintenance:</strong> devices fail, get damaged or need repair, often far from head office.</li></ul><h2 style="margin: 44px 0 16px; font-size: 26px; line-height: 34px; font-weight: 700; letter-spacing: -0.01em; color: #0b0d12">How geofenced attendance works</h2><p style="margin: 0 0 22px; font-size: 18px; line-height: 31px; color: #1f2430">A geofence is a virtual boundary drawn around a location on a map, such as a site, campus or venue. Staff or attendees check in from an authorised mobile device, and the system records the check-in only if they are inside the boundary at the time. Each record carries a timestamp and location, creating an audit trail that HR can export for payroll.</p><h2 style="margin: 44px 0 16px; font-size: 26px; line-height: 34px; font-weight: 700; letter-spacing: -0.01em; color: #0b0d12">Choosing between them</h2><ul style="margin: 0 0 26px; padding-left: 22px; font-size: 18px; line-height: 30px; color: #1f2430"><li style="margin: 0 0 10px; padding-left: 4px"><strong>One fixed office with stable power and internet:</strong> a biometric terminal can work well.</li><li style="margin: 0 0 10px; padding-left: 4px"><strong>Multiple sites, field staff or events:</strong> geofenced check-in avoids hardware at every location.</li><li style="margin: 0 0 10px; padding-left: 4px"><strong>Mixed teams:</strong> many organisations use both, biometric at headquarters and geofencing everywhere else.</li></ul><h2 style="margin: 44px 0 16px; font-size: 26px; line-height: 34px; font-weight: 700; letter-spacing: -0.01em; color: #0b0d12">Getting it right</h2><p style="margin: 0 0 22px; font-size: 18px; line-height: 31px; color: #1f2430">Whichever method you choose, be clear with staff about what is recorded and why, and handle location data in line with Ghana’s Data Protection Act (Act 843). Only record location at check-in and check-out, not continuously, and limit who can see the data.</p>
+    <aside style="margin-top: 56px; background: #000000; color: #ffffff; border-radius: 8px; padding: 32px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between">
+      <div style="flex: 1 1 360px; min-width: 0">
+        <p style="margin: 0 0 8px; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; color: #4d8dff">FROM SPRYWAVE</p>
+        <h2 style="margin: 0 0 8px; font-size: 24px; line-height: 32px; font-weight: 700">GeoPulse Cloud</h2>
+        <p style="margin: 0; font-size: 15px; line-height: 24px; color: #a9afbb">Geofenced attendance and event check-in with no hardware, verified by location.</p>
+      </div>
+      <a href="products.html" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 26px; border-radius: 999px; background: #1557d6; color: #ffffff; text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: 0.06em">LEARN MORE</a>
+    </aside>
+  </div>
+</article>
+
+<!-- MORE POSTS -->
+<section style="padding: 80px 16px 96px; background: #eef4ff">
+  <div style="max-width: 1120px; margin: 0 auto">
+    <h2 style="margin: 0 0 32px; font-size: 28px; line-height: 36px; font-weight: 700">More from the blog</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+      <a href="blog-bulk-sms-ghana.html" class="card" style="display: flex; flex-direction: column; gap: 10px; background: #ffffff; border-radius: 8px; padding: 24px; color: #0b0d12; text-decoration: none; box-shadow: 0 6px 24px rgba(11, 13, 18, 0.10)">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #1557d6">SMS &AMP; MESSAGING</span>
+        <h3 style="margin: 0; font-size: 18px; line-height: 26px; font-weight: 700">Bulk SMS in Ghana: How to Choose a Provider and Get Your Sender ID Approved</h3>
+        <span style="font-size: 13px; color: #4a5160">6 min read</span>
+      </a>
+      <a href="blog-school-management-software.html" class="card" style="display: flex; flex-direction: column; gap: 10px; background: #ffffff; border-radius: 8px; padding: 24px; color: #0b0d12; text-decoration: none; box-shadow: 0 6px 24px rgba(11, 13, 18, 0.10)">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #1557d6">EDUCATION</span>
+        <h3 style="margin: 0; font-size: 18px; line-height: 26px; font-weight: 700">Why Ghanaian Schools Are Moving from Paper Registers to School Management Software</h3>
+        <span style="font-size: 13px; color: #4a5160">5 min read</span>
+      </a>
+      <a href="blog-otp-verification-ghana.html" class="card" style="display: flex; flex-direction: column; gap: 10px; background: #ffffff; border-radius: 8px; padding: 24px; color: #0b0d12; text-decoration: none; box-shadow: 0 6px 24px rgba(11, 13, 18, 0.10)">
+        <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: #1557d6">DEVELOPERS</span>
+        <h3 style="margin: 0; font-size: 18px; line-height: 26px; font-weight: 700">OTP Verification for Ghanaian Apps: SMS vs WhatsApp vs USSD</h3>
+        <span style="font-size: 13px; color: #4a5160">6 min read</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background: #000000; color: #ffffff; padding: 72px 16px 0">
+  <div style="max-width: 1120px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 48px">
+    <div style="flex: 2 1 400px; min-width: 0">
+      <h2 style="margin: 0 0 12px; font-size: 26px; line-height: 34px; font-weight: 600">Get our newsletter</h2>
+      <p style="margin: 0 0 24px; font-size: 15px; line-height: 24px; color: #a9afbb">Subscribe to our newsletter for the latest updates</p>
+      <form style="display: flex; flex-wrap: wrap; gap: 12px; max-width: 440px">
+        <label for="nl-email-blogattendance" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email address</label>
+        <input id="nl-email-blogattendance" type="email" placeholder="Enter email address" style="flex: 1 1 220px; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: #ffffff; color: #0b0d12; font: 400 14px Manrope, system-ui, sans-serif">
+        <button type="submit" style="min-height: 44px; padding: 0 32px; border-radius: 999px; border: 0; background: #1557d6; color: #ffffff; font: 600 14px Manrope, system-ui, sans-serif; cursor: pointer">Subscribe</button>
+      </form>
+      <p style="margin: 20px 0 24px; font-size: 14px; line-height: 22px; color: #ffffff">By subscribing, you agree to our <a href="privacy-policy.html" style="color: #ffffff">Privacy Policy</a></p>
+      <div style="display: flex; gap: 8px">
+        <a href="#" aria-label="Facebook" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #4d8dff"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-1.6 19.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 12 2z"></path></svg></a>
+        <a href="#" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #4d8dff"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"></circle></svg></a>
+        <a href="#" aria-label="X" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #4d8dff"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20"></path></svg></a>
+        <a href="#" aria-label="YouTube" style="display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: #4d8dff"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z"></path></svg></a>
+      </div>
+    </div>
+    <div style="flex: 1 1 200px; min-width: 0">
+      <h2 style="margin: 0 0 20px; font-size: 26px; line-height: 34px; font-weight: 600">Quick Links</h2>
+      <div style="display: flex; flex-direction: column; gap: 14px; font-size: 15px">
+        <a href="index.html" style="color: #ffffff; text-decoration: none">Home</a>
+        <a href="about.html" style="color: #ffffff; text-decoration: none">About</a>
+        <a href="blog.html" style="color: #ffffff; text-decoration: none">Blog</a>
+        <a href="contact.html" style="color: #ffffff; text-decoration: none">Contact Us</a>
+        <a href="privacy-policy.html" style="color: #ffffff; text-decoration: none">Privacy Policy</a>
+        <a href="terms-of-use.html" style="color: #ffffff; text-decoration: none">Terms of Use</a>
+        <a href="#" style="color: #ffffff; text-decoration: none">Cookies Settings</a>
+      </div>
+    </div>
+    <div style="flex: 1 1 200px; min-width: 0">
+      <h2 style="margin: 0 0 20px; font-size: 26px; line-height: 34px; font-weight: 600">Services</h2>
+      <div style="display: flex; flex-direction: column; gap: 14px; font-size: 15px">
+        <a href="software-development.html" style="color: #ffffff; text-decoration: none">Software Development</a>
+        <a href="virtual-teams.html" style="color: #ffffff; text-decoration: none">Virtual Teams</a>
+        <a href="call-center-solutions.html" style="color: #ffffff; text-decoration: none">Call Center Solutions</a>
+        <a href="erp-solutions.html" style="color: #ffffff; text-decoration: none">ERP Solutions</a>
+        <a href="consulting-services.html" style="color: #ffffff; text-decoration: none">Consulting Services</a>
+      </div>
+    </div>
+  </div>
+  <div style="margin: 64px -16px 0; padding: 24px 16px; background: #14161c; border-top: 1px solid #2a2e38; text-align: center; font-size: 14px; color: #a9afbb">©2026 Sprywave Technologies. All rights reserved.</div>
+</footer>
+
+</div>
+</body>
+</html>
